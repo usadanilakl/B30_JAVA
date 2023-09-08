@@ -14,6 +14,7 @@ public class MyLinkedList<T> {
             size++;
         }else if(head != null){
             LinkedObjects<T> current = new LinkedObjects<T>(data, head);
+            current.next = head;
             head = current;
             size++;
         }
@@ -82,12 +83,12 @@ public class MyLinkedList<T> {
         return size;
     }
 
-    public T getHead(){
-        return head.data;
+    public LinkedObjects<T> getHead(){
+        return head;
     }
 
-    public T getTail(){
-        return tail.data;
+    public LinkedObjects<T> getTail(){
+        return tail;
     }
 
     @Override
@@ -99,5 +100,47 @@ public class MyLinkedList<T> {
             current = current.next;
         }
         return print.substring(0,print.length()-2) + ".";
+    }
+
+    public int indexOf(T data){
+        LinkedObjects  current = head;
+        LinkedObjects obj = new LinkedObjects<>(data,null);
+        int indx = 0;
+        while (current != null){
+            if(current.equals(obj)){
+                return indx;
+            }else{
+                current = current.next;
+                indx++;
+            }
+        }
+        return -1;
+    }
+    public T KthFromLast(int k){
+        LinkedObjects <T> one = head;
+        LinkedObjects <T> two = head;
+        for(int i = 0; i<k-1; i++){
+            one = one.next;
+        }
+        while(one.next != null){
+            two = two.next;
+            one = one.next;
+        }
+        return two.data;
+    }
+
+    public void removeKthFromLast(int k){
+        LinkedObjects <T> one = head;
+        LinkedObjects <T> two = head;
+        LinkedObjects<T> previous = one;
+        for(int i = 0; i<k; i++){
+            one = one.next;
+        }
+        while(one.next != null){
+            previous = two;
+            two = two.next;
+            one = one.next;
+        }
+        two.next = two.next.next;
     }
 }

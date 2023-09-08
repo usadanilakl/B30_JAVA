@@ -3,6 +3,7 @@ package day35_Collection.customLinkedList;
 public class LinkedObjects <T>{
     public T data;
     public LinkedObjects<T> next;
+    public int index;
 
     public LinkedObjects(T data, LinkedObjects<T> next) {
         this.data = data;
@@ -23,4 +24,5 @@ public class LinkedObjects <T>{
     public int hashCode() {
         return data.hashCode();
     }
+
 }
