@@ -27,6 +27,11 @@ public class PrimitiveTypeCastings {
         System.out.println("cc = " + cc);
         System.out.println("bb = " + bb);
         System.out.println("aa = " + aa);
+
+        double n = 5/2; // returns int because int is default type
+        double p = 5.0/2; // returns double because one double is used (5.0 not 5)
+        System.out.println("n = " + n);
+        System.out.println("p = " + p);
     }
 
 }

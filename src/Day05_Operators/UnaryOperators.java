@@ -26,5 +26,17 @@ public class UnaryOperators {
         System.out.println(n);
         System.out.println(num);
 
+        int e = 5;
+        int f = e++*2; // multiplication first then increment
+
+        int b = 5;
+        int c = ++b*2; // increment firs then multiplication
+        System.out.println("e = " + e);
+        System.out.println("f = " + f);
+
+        System.out.println("b = " + b);
+        System.out.println("c = " + c);
+
+
     }
 }
